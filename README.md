@@ -23,19 +23,32 @@ MongoDB does not provide any sample databases on their website, However, they do
 | [Sample Training Dataset](https://docs.atlas.mongodb.com/sample-data/sample-training/)      | Contains MongoDB training services dataset.                       | companies, grades, inspection, posts, routes, stories, trips, tweets, zips |
 | [Sample Weather Dataset](https://docs.atlas.mongodb.com/sample-data/sample-weather/)        | Contains detailed weather reports.                                | data                                                                       |
 
-## Running in docker
+# Docker MongoDB
 
-```bash
-docker pull mvertes/alpine-mongo
+## Step-1: Start Mongodb
 
-docker run -d --name mongo -p 2717:27017 -v ~/mongodb:/data/db mvertes/alpine-mongo
-
-# args
-#   hostname   
-#   port
-./script.sh localhost 2717
-
-# start mongo shell
-docker exec -it mongo mongo
+```sh
+docker compose up -d 
 ```
+
+## Step-2: Shell to containter
+
+```sh
+docker compose exec mongodb bash
+```
+
+## Step-3: Import example data
+
+```sh
+cd /sample-dataset
+
+sh script.sh localhost 27017 root example
+```
+
+## Step-4: MongoDB Compass
+
+Visit https://www.mongodb.com/products/tools/compass
+and install Mongodb Compass
+
+
 
