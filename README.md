@@ -41,8 +41,8 @@ docker compose exec mongodb bash
 
 ```sh
 cd /sample-dataset
-
-sh script.sh localhost 27017 root example
+curl https://atlas-education.s3.amazonaws.com/sampledata.archive -o sampledata.archive
+mongorestore --archive=sampledata.archive --drop -u root -p example
 ```
 
 ## Step-4: MongoDB Compass
